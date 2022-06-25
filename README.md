@@ -48,3 +48,9 @@ docker run -itd --name activity --restart=always -p 8084:8084 -v /root/Spring/bl
 ```
 
 **设置自动重启：**--restart=always
+
+## To-Do List
+
+1. 根据后续需求考虑是否要重构为单体应用
+2. 根目录新建pom.xml，将各子文件夹配置为模块，方便依赖的版本管理
+3. 部署到新的环境并修改数据库连接等配置
