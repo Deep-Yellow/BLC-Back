@@ -1,0 +1,33 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+  application:
+    name: blc-coin-service
+  datasource:
+    url: jdbc:mysql://101.43.110.92:3306/blccoin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: aabbcc123
+
+server:
+  port: 8089
+  session-timeout: 30
+  tomcat.max-threads: 1
+  tomcat.uri-encoding: UTF-8
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://101.43.110.92:8761/eureka/
+
+filePath:
+  LevelMapping: "/root/blcCoin/LevelMapping.csv"  #CCF推荐 等级对应表格
+  PapersList: "/root/blcCoin/EN"            #csv文件根目录
+  CSVSample: "/root/blcCoin/EN/2022.csv"   #csv文件示例
+  LevelMappingC: "/root/blcCoin/LevelMapping2.csv"
+  PapersListC: "/root/blcCoin/CN"
+  CSVSampleC: "/root/blcCoin/CN/savedrecs.csv"

@@ -1,0 +1,17 @@
+.idea
+*.jar
+*.original
+*.jar
+*.lst
+*.iml
+*.mvn
+mvnw
+mvnw.cmd
+*.class
+.settings/
+.project
+*/.project
+.classpath
+*/.classpath
+*/target/
+*/bin/

@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: blc-coin-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/blccoin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: aabbcc123
+  sql:
+    init:
+      schema-locations: classpath:sql/blc.sql
+      mode: never
+  config:
+    activate:
+      on-profile: dev
+
+server:
+  port: 8089
+  session-timeout: 30
+  tomcat.max-threads: 1
+  tomcat.uri-encoding: UTF-8
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+filePath:
+  LevelMapping: "D:/AdiFiles/LevelMapping.csv"  #CCF推荐 等级对应表格
+  PapersList: "D:/AdiFiles/TempData"            #csv文件根目录
+  CSVSample: "D:/AdiFiles/TempData/2022.csv"   #csv文件示例
+  LevelMappingC: "D:/AdiFiles/LevelMapping2.csv"
+  PapersListC: "D:/AdiFiles/TempData2"
+  CSVSampleC: "D:/AdiFiles/TempData2/savedrecs.csv"
